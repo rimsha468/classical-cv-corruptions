@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "classical-cv-corruptions"
+version = "0.1.0"
+description = "Corruption robustness of classical image features (HOG, LBP, color histograms) on CIFAR-10"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "scikit-image>=0.21",
+    "opencv-python-headless>=4.8",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+ccr = "ccr.cli:main"
+
+[tool.setuptools]
+packages = ["ccr"]
