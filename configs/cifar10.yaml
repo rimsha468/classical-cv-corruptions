@@ -1,0 +1,24 @@
+dataset: cifar10
+data_root: data
+n_train: 10000
+n_test: 2000
+seeds: [0, 1, 2]
+features: [tiny, color_hist, hog, lbp, hog+color_hist]
+models: [logreg]
+corruptions: all
+severities: [1, 2, 3, 4, 5]
+
+# clean: no augmentation
+# aug_all: half the training images get a random corruption at severity 1-3
+# aug_no_blur: same, but blur is never seen during training
+regimes:
+  clean: {}
+  aug_all:
+    corruptions: all
+    severities: [1, 2, 3]
+    p: 0.5
+  aug_no_blur:
+    corruptions: all
+    exclude: [gaussian_blur]
+    severities: [1, 2, 3]
+    p: 0.5
