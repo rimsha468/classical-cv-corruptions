@@ -1,0 +1,20 @@
+# sklearn digits, upsampled. Only for checking that the pipeline runs end to end.
+dataset: digits
+n_train: 600
+n_test: 400
+seeds: [0, 1]
+features: [color_hist, hog, lbp, hog+color_hist]
+models: [logreg, linear_svm]
+corruptions: all
+severities: [1, 2, 3, 4, 5]
+regimes:
+  clean: {}
+  aug_all:
+    corruptions: all
+    severities: [1, 2, 3]
+    p: 0.5
+  aug_no_blur:
+    corruptions: all
+    exclude: [gaussian_blur]
+    severities: [1, 2, 3]
+    p: 0.5
